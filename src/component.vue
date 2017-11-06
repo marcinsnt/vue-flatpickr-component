@@ -1,5 +1,5 @@
 <template>
-
+  <div ref="wrapper">
   <input type="text"
          :id="id"
          :class="inputClass"
@@ -8,7 +8,7 @@
          :required="required"
          v-model="mutableValue"
          data-input>
-
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -77,7 +77,7 @@
         this.config.onChange = this.onChange;
 
         // Bind on parent element if wrap is true
-        let elem = this.config.wrap ? this.$el.parentNode : this.$el;
+        let elem = this.config.wrap ? this.$refs.wrapper : this.$el;
         this.fp = new Flatpickr(elem, this.config);
 
       }
